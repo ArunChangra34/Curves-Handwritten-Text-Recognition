@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Datasets and local caches
+data/
+*.tar.gz
+*.zip
+
+# Local scratch / logs
+*.log
+!checkpoints/*.log

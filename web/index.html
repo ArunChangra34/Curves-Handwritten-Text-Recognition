@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curves — Handwritten Text Recognition</title>
+<meta name="description" content="Recognise handwritten Devanagari and English text, entirely in your browser.">
+<script>try{var t=localStorage.getItem('curves-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2306b6d4'/%3E%3Cpath d='M7 20c4-12 8-12 9-4s5 8 9-4' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#/recognize"><b>Curves</b><span>Handwritten Text Recognition</span></a>
+    <nav class="links">
+      <a href="#/recognize" data-route="recognize">Recognize</a>
+      <a href="#/model" data-route="model">Model</a>
+      <a href="#/pipeline" data-route="pipeline">Pipeline</a>
+      <i class="sep"></i>
+      <button id="theme" class="icon-btn" aria-label="Toggle theme"></button>
+      <span class="status"><i id="dot" class="dot warn"></i><span id="status-text">Loading model…</span></span>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ============ RECOGNIZE ============ -->
+<section id="view-recognize" class="view">
+  <h1>Handwriting Recognition</h1>
+  <p class="lead">Upload a photo of handwriting, or draw it directly. One shared network reads <code>Devanagari</code> and <code>English</code>, and it runs entirely in your browser — nothing is uploaded.</p>
+
+  <div class="card">
+    <div class="card-head">
+      <span class="label"><i class="dot acc"></i>INPUT</span>
+      <div class="tabs" role="tablist">
+        <button class="tab on" data-tab="drop">IMAGE DROP</button>
+        <button class="tab" data-tab="draw">DRAW</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div id="pane-drop">
+        <label id="drop" class="drop" tabindex="0">
+          <input id="file" type="file" accept="image/*" hidden>
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg>
+          <p class="drop-t">Drop a handwriting image here</p>
+          <p class="drop-s">or click to browse — you can also paste an image from the clipboard</p>
+        </label>
+      </div>
+      <div id="pane-draw" hidden>
+        <div class="draw-wrap"><canvas id="pad" width="1400" height="360"></canvas></div>
+        <div class="row end"><button class="btn" id="clear">CLEAR</button></div>
+      </div>
+      <div class="row between opts">
+        <div class="seg" id="script" role="radiogroup" aria-label="Script">
+          <span class="label">SCRIPT</span>
+          <button class="chip on" data-s="auto">AUTO</button>
+          <button class="chip" data-s="hi">DEVANAGARI</button>
+          <button class="chip" data-s="en">ENGLISH</button>
+        </div>
+        <div class="seg" id="samples"><span class="label">SAMPLES</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card result" id="result" hidden>
+    <div class="card-head"><span class="label"><i class="dot ok"></i>RESULT</span>
+      <button class="btn" id="copy">COPY</button></div>
+    <div class="card-body res-grid">
+      <div>
+        <div class="text" id="out" lang="hi"></div>
+        <div class="meta">
+          <div><span class="label">CONFIDENCE</span><b id="m-conf">–</b></div>
+          <div><span class="label">SCRIPT</span><b id="m-script">–</b></div>
+          <div><span class="label">LATENCY</span><b id="m-ms">–</b></div>
+        </div>
+      </div>
+      <figure><canvas id="prev" width="160" height="32"></canvas><figcaption class="label">MODEL INPUT · 32×160</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODEL ============ -->
+<section id="view-model" class="view" hidden>
+  <h1>Model</h1>
+  <p class="lead">A convolutional feature extractor feeds a bidirectional LSTM, trained with CTC loss so no character-level alignment is needed. A single character set covers both scripts.</p>
+  <div class="card"><div class="card-head"><span class="label"><i class="dot acc"></i>ARCHITECTURE</span></div>
+    <div class="card-body"><div class="flow" id="flow"></div></div></div>
+  <div class="card"><div class="card-head"><span class="label"><i class="dot acc"></i>CHARACTER ERROR RATE · LOWER IS BETTER</span></div>
+    <div class="card-body"><div class="tbl-wrap"><table id="tbl"></table></div>
+      <p class="note" id="tbl-note"></p></div></div>
+</section>
+
+<!-- ============ PIPELINE ============ -->
+<section id="view-pipeline" class="view" hidden>
+  <h1>Pipeline</h1>
+  <p class="lead">From raw pixels to text — the same preprocessing runs in training and in this page.</p>
+  <div class="card"><div class="card-head"><span class="label"><i class="dot acc"></i>PHASES</span></div>
+    <div class="card-body"><ol class="phases" id="phases"></ol></div></div>
+</section>
+</main>
+<footer class="foot">Curves · CRNN (CNN + BiLSTM + CTC) · runs locally via ONNX Runtime Web</footer>
+
+<script src="vendor/ort.wasm.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

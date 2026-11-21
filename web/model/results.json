@@ -1,0 +1,349 @@
+{
+ "metrics": {
+  "crnn_joint": {
+   "params": 1177994,
+   "ms_per_image": 1.8261488676071167,
+   "test_seen/all": {
+    "cer": 2.48,
+    "wer": 10.67,
+    "exact": 86.95,
+    "n": 6000
+   },
+   "test_seen/en": {
+    "cer": 1.02,
+    "wer": 5.59,
+    "exact": 93.56,
+    "n": 2564
+   },
+   "test_seen/hi": {
+    "cer": 3.48,
+    "wer": 13.05,
+    "exact": 85.02,
+    "n": 2504
+   },
+   "test_seen/mix": {
+    "cer": 3.54,
+    "wer": 15.4,
+    "exact": 73.93,
+    "n": 932
+   },
+   "test_seen/all_with_selector": {
+    "cer": 2.46,
+    "wer": 10.67,
+    "exact": 86.95
+   },
+   "test_held/all": {
+    "cer": 7.73,
+    "wer": 30.49,
+    "exact": 63.4,
+    "n": 6000
+   },
+   "test_held/en": {
+    "cer": 8.12,
+    "wer": 34.34,
+    "exact": 62.95,
+    "n": 2556
+   },
+   "test_held/hi": {
+    "cer": 7.43,
+    "wer": 27.2,
+    "exact": 68.01,
+    "n": 2548
+   },
+   "test_held/mix": {
+    "cer": 7.49,
+    "wer": 29.58,
+    "exact": 51.56,
+    "n": 896
+   },
+   "test_held/all_with_selector": {
+    "cer": 7.71,
+    "wer": 30.43,
+    "exact": 63.47
+   }
+  },
+  "cnn_baseline": {
+   "params": 3537040,
+   "ms_per_image": 1.327601393063863,
+   "test_seen/all": {
+    "cer": 47.32,
+    "wer": 90.47,
+    "exact": 11.37,
+    "n": 6000
+   },
+   "test_seen/en": {
+    "cer": 38.3,
+    "wer": 84.78,
+    "exact": 17.51,
+    "n": 2564
+   },
+   "test_seen/hi": {
+    "cer": 49.92,
+    "wer": 92.29,
+    "exact": 9.31,
+    "n": 2504
+   },
+   "test_seen/mix": {
+    "cer": 59.23,
+    "wer": 97.16,
+    "exact": 0.0,
+    "n": 932
+   },
+   "test_held/all": {
+    "cer": 50.59,
+    "wer": 93.57,
+    "exact": 7.62,
+    "n": 6000
+   },
+   "test_held/en": {
+    "cer": 43.17,
+    "wer": 90.57,
+    "exact": 11.03,
+    "n": 2556
+   },
+   "test_held/hi": {
+    "cer": 52.9,
+    "wer": 94.25,
+    "exact": 6.87,
+    "n": 2548
+   },
+   "test_held/mix": {
+    "cer": 60.31,
+    "wer": 97.66,
+    "exact": 0.0,
+    "n": 896
+   }
+  },
+  "crnn_en": {
+   "params": 1177994,
+   "ms_per_image": 1.6734487613042195,
+   "test_seen/all": {
+    "cer": 50.58,
+    "wer": 57.98,
+    "exact": 39.62,
+    "n": 6000
+   },
+   "test_seen/en": {
+    "cer": 1.18,
+    "wer": 6.34,
+    "exact": 92.71,
+    "n": 2564
+   },
+   "test_seen/hi": {
+    "cer": 105.7,
+    "wer": 100.0,
+    "exact": 0.0,
+    "n": 2504
+   },
+   "test_seen/mix": {
+    "cer": 54.79,
+    "wer": 76.13,
+    "exact": 0.0,
+    "n": 932
+   },
+   "test_held/all": {
+    "cer": 55.68,
+    "wer": 76.65,
+    "exact": 19.67,
+    "n": 6000
+   },
+   "test_held/en": {
+    "cer": 12.56,
+    "wer": 49.54,
+    "exact": 46.17,
+    "n": 2556
+   },
+   "test_held/hi": {
+    "cer": 104.59,
+    "wer": 100.06,
+    "exact": 0.0,
+    "n": 2548
+   },
+   "test_held/mix": {
+    "cer": 55.5,
+    "wer": 82.81,
+    "exact": 0.0,
+    "n": 896
+   }
+  },
+  "crnn_hi": {
+   "params": 1177994,
+   "ms_per_image": 1.955924352010091,
+   "test_seen/all": {
+    "cer": 56.4,
+    "wer": 60.59,
+    "exact": 34.23,
+    "n": 6000
+   },
+   "test_seen/en": {
+    "cer": 101.68,
+    "wer": 102.79,
+    "exact": 0.0,
+    "n": 2564
+   },
+   "test_seen/hi": {
+    "cer": 4.17,
+    "wer": 15.88,
+    "exact": 82.03,
+    "n": 2504
+   },
+   "test_seen/mix": {
+    "cer": 55.12,
+    "wer": 63.04,
+    "exact": 0.0,
+    "n": 932
+   },
+   "test_held/all": {
+    "cer": 58.37,
+    "wer": 68.39,
+    "exact": 26.43,
+    "n": 6000
+   },
+   "test_held/en": {
+    "cer": 101.66,
+    "wer": 102.87,
+    "exact": 0.0,
+    "n": 2556
+   },
+   "test_held/hi": {
+    "cer": 9.4,
+    "wer": 32.76,
+    "exact": 62.24,
+    "n": 2548
+   },
+   "test_held/mix": {
+    "cer": 58.37,
+    "wer": 70.98,
+    "exact": 0.0,
+    "n": 896
+   }
+  }
+ },
+ "error_examples": [
+  [
+   "आत्मघाती इटारसी",
+   "आत्मघाती इटास्सी",
+   "hi"
+  ],
+  [
+   "फ़ाइलों",
+   "फ़ाडलों",
+   "hi"
+  ],
+  [
+   "ट्रेडर्स",
+   "ट्रडर्स",
+   "hi"
+  ],
+  [
+   "सूर्यकांत",
+   "सर्यकांत",
+   "hi"
+  ],
+  [
+   "शारीरिक esq",
+   "शाीरिक esq",
+   "mix"
+  ],
+  [
+   "ज़ाहिर",
+   "जाहिर",
+   "hi"
+  ],
+  [
+   "readable",
+   "readabLe",
+   "en"
+  ],
+  [
+   "ेँो",
+   "ँी",
+   "hi"
+  ],
+  [
+   "EUJuk",
+   "EUJlh",
+   "en"
+  ],
+  [
+   "stalin mcguire",
+   "stdlin mcguire",
+   "en"
+  ],
+  [
+   "subdue verticall",
+   "subdue verticdl",
+   "en"
+  ],
+  [
+   "filing",
+   "fllng",
+   "en"
+  ],
+  [
+   "लक्षद्वीप",
+   "लक्षड्ीप",
+   "hi"
+  ],
+  [
+   "सन्नाटा",
+   "सत्नाटा",
+   "hi"
+  ],
+  [
+   "घदुि३ पोखरियाल",
+   "घदि्ि३ पोखरियाल",
+   "hi"
+  ],
+  [
+   "trujillo moderat",
+   "trujio moderot",
+   "en"
+  ],
+  [
+   "क६ष८घ८च com",
+   "क६ब८घ८च corn",
+   "mix"
+  ],
+  [
+   "Street sponsorin",
+   "Strest sponsorin",
+   "en"
+  ],
+  [
+   "सवार जैक",
+   "सवार उैक",
+   "hi"
+  ],
+  [
+   "भद्दा Complete",
+   "भद्ठा Complete",
+   "mix"
+  ],
+  [
+   "clarify",
+   "darify",
+   "en"
+  ],
+  [
+   "पदकों",
+   "पटकों",
+   "hi"
+  ],
+  [
+   "माताएं DW",
+   "माताएं Dw",
+   "mix"
+  ],
+  [
+   "0C83asE",
+   "OC83asE",
+   "en"
+  ],
+  [
+   "coups awarded",
+   "coups axarded",
+   "en"
+  ]
+ ]
+}
